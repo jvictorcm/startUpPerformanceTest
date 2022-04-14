@@ -6,6 +6,7 @@ spring:
   platform: mysql
   driverClassName: com.mysql.jdbc.Driver
   jpa:
+    databasePlatform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
 management:
   endpoints:
