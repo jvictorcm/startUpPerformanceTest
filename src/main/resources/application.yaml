@@ -8,8 +8,17 @@ spring:
   jpa:
     databasePlatform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
+#  main:
+#    lazyInitialization: true
 management:
   endpoints:
     web:
       exposure:
         include: health
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: DEBUG

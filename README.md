@@ -1,6 +1,7 @@
 # Getting Started
 
 ### Startup Performance Test
+
 The purpose of this test is to be testing how fast an app can be starting with springboot
 
 ```console
@@ -12,9 +13,34 @@ docker run --rm -d -p 8080:8080 -e MYSQL_HOST=mysql --name sample-app --net=my-n
 ```
 
 Without any tuning, the first results:
+
 `Started StartUpPerformanceTestApplication in 9.215 seconds (JVM running for 10.644)`
 
 Lets start with [Lazy Initialization](https://www.baeldung.com/spring-boot-lazy-initialization) inside the project.
 
-`application.yaml -> spring.main.lazy-initialization=true`
+Inside application.yaml
 
+```console
+spring:
+  main:
+    lazyInitialization: true
+```
+
+With lazy initialization:
+
+`Started StartUpPerformanceTestApplication in 4.017 seconds (JVM running for 4.461)`
+
+We can remove the lazyInitialization and go over autoconfiguration settings.
+
+Starting with application.yaml:
+```console
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: DEBUG
+```
+And we now we should run `./gradlew clean build`
+
+And then `java -jar build/libs/startUpPerformanceTest-startUpPerformance.jar`
