@@ -1,13 +1,69 @@
 package br.com.victor.startUpPerformanceTest;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.audit.AuditAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.audit.AuditEventsEndpointAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.availability.AvailabilityHealthContributorAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.availability.AvailabilityProbesAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.beans.BeansEndpointAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.cache.CachesEndpointAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.cassandra.CassandraHealthContributorAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.cassandra.CassandraReactiveHealthContributorAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.endpoint.web.reactive.WebFluxEndpointManagementContextConfiguration;
+import org.springframework.boot.actuate.autoconfigure.endpoint.web.servlet.WebMvcEndpointManagementContextConfiguration;
+import org.springframework.boot.actuate.autoconfigure.management.ThreadDumpEndpointAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.cache.CacheMetricsAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.export.appoptics.AppOpticsMetricsExportAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.export.atlas.AtlasMetricsExportAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.export.stackdriver.StackdriverMetricsExportAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.export.statsd.StatsdMetricsExportAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.export.wavefront.WavefrontMetricsExportAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.metrics.web.reactive.WebFluxMetricsAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.redis.RedisReactiveHealthContributorAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.startup.StartupEndpointAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.aop.AopAutoConfiguration;
+import org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration;
+import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
+import org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.cassandra.CassandraRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jms.activemq.ActiveMQAutoConfiguration;
+import org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.saml2.Saml2RelyingPartyAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+import org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration;
+import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
+import org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.reactive.WebSessionIdResolverAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration;
+import org.springframework.boot.autoconfigure.webservices.client.WebServiceTemplateAutoConfiguration;
+import org.springframework.boot.autoconfigure.websocket.reactive.WebSocketReactiveAutoConfiguration;
+import org.springframework.boot.autoconfigure.websocket.servlet.WebSocketMessagingAutoConfiguration;
+import org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration;
 
-@SpringBootApplication
+
+@SpringBootApplication(exclude = {ActiveMQAutoConfiguration.class, AopAutoConfiguration.class, AppOpticsMetricsExportAutoConfiguration.class, ArtemisAutoConfiguration.class, AtlasMetricsExportAutoConfiguration.class, AuditAutoConfiguration.class, AuditEventsEndpointAutoConfiguration.class, AvailabilityHealthContributorAutoConfiguration.class, BatchAutoConfiguration.class, BeansEndpointAutoConfiguration.class, CacheAutoConfiguration.class, ArtemisAutoConfiguration.class, AtlasMetricsExportAutoConfiguration.class, AuditAutoConfiguration.class, BeansEndpointAutoConfiguration.class, CacheAutoConfiguration.class, CacheMetricsAutoConfiguration.class, CassandraAutoConfiguration.class, OAuth2ResourceServerAutoConfiguration.class, ProjectInfoAutoConfiguration.class, Saml2RelyingPartyAutoConfiguration.class, SecurityAutoConfiguration.class, SecurityFilterAutoConfiguration.class, XADataSourceAutoConfiguration.class, WebSocketServletAutoConfiguration.class, WebSocketReactiveAutoConfiguration.class, WebSocketMessagingAutoConfiguration.class, WebSessionIdResolverAutoConfiguration.class, WebServicesAutoConfiguration.class, WebServiceTemplateAutoConfiguration.class, WebMvcAutoConfiguration.class, WebFluxMetricsAutoConfiguration.class, WebFluxAutoConfiguration.class,  WebClientAutoConfiguration.class, WavefrontMetricsExportAutoConfiguration.class, UserDetailsServiceAutoConfiguration.class, TransactionAutoConfiguration.class, ThymeleafAutoConfiguration.class, ThreadDumpEndpointAutoConfiguration.class, TaskSchedulingAutoConfiguration.class, StatsdMetricsExportAutoConfiguration.class, StartupEndpointAutoConfiguration.class, StackdriverMetricsExportAutoConfiguration.class, RedisReactiveHealthContributorAutoConfiguration.class, RedisRepositoriesAutoConfiguration.class, AvailabilityProbesAutoConfiguration.class, CachesEndpointAutoConfiguration.class, CassandraDataAutoConfiguration.class, CassandraHealthContributorAutoConfiguration.class, CassandraReactiveDataAutoConfiguration.class, CassandraReactiveHealthContributorAutoConfiguration.class, CassandraReactiveRepositoriesAutoConfiguration.class, CassandraRepositoriesAutoConfiguration.class, ClientHttpConnectorAutoConfiguration.class})
 public class StartUpPerformanceTestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StartUpPerformanceTestApplication.class, args);
-	}
+//@SpringBootApplication
+//public class StartUpPerformanceTestApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(StartUpPerformanceTestApplication.class, args);
+    }
 
 }
+

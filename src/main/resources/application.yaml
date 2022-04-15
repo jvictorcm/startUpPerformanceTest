@@ -16,9 +16,9 @@ management:
       exposure:
         include: health
 
-logging:
-  level:
-    org:
-      springframework:
-        boot:
-          autoconfigure: DEBUG
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        boot:
+#          autoconfigure: DEBUG

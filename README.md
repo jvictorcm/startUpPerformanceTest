@@ -20,7 +20,7 @@ Lets start with [Lazy Initialization](https://www.baeldung.com/spring-boot-lazy-
 
 Inside application.yaml
 
-```console
+```yaml
 spring:
   main:
     lazyInitialization: true
@@ -33,7 +33,7 @@ With lazy initialization:
 We can remove the lazyInitialization and go over autoconfiguration settings.
 
 Starting with application.yaml:
-```console
+```yaml
 logging:
   level:
     org:
@@ -44,3 +44,30 @@ logging:
 And we now we should run `./gradlew clean build`
 
 And then `java -jar build/libs/startUpPerformanceTest-startUpPerformance.jar`
+
+Copy all negative matches into 
+```java
+@SpringBootApplication(exclude = {xxxxxxx.class, yyyyyyy.class, ....})
+```
+Run
+```console
+./gradlew clean build
+docker build -t sample-app:startUpPerformanceTest .
+docker run --rm -d -p 8080:8080 -e MYSQL_HOST=mysql --name sample-app --net=my-net sample-app:startUpPerformanceTest
+ ```
+
+Whe shall test now options regarding the *tomcat*(which is fine most of the times). Let's try the undertow from Jboss
+
+Inside build.gradle.kts, uncomment the following:
+```kotlin
+{
+    exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
+}
+implementation("org.springframework.boot:spring-boot-starter-undertow")
+```
+
+Next steps:
+* Add spring-context-indexer and get inside `META-INF\spring.components` to be used in the startup
+* Add the application.yml location path to cut few ms instead of spring trying to find where the file is located with `--spring.config.location=classpath:/application.yaml`
+* Removing MBeans using JMX to monitor the app with `spring.jmx.enabled=false`
+* `java -jar -noverify .\target\springStartupApp.jar `
